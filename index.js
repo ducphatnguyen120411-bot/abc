@@ -105,7 +105,7 @@ const rolesEmbed = new EmbedBuilder()
         const infoEmbed = new EmbedBuilder()
             .setColor('#3498db')
             .setTitle('Kênh chính thức & Lưu ý')
-            .setDescription('Vui lòng chỉ theo dõi và liên hệ thông qua các kênh chính thức của **Verdict | CSVN**.\nChúng tôi **không chịu trách nhiệm** đối với thông tin, hành vi hoặc giao dịch phát sinh ngoài các kênh được xác nhận.\n\n🌐 **Website**: \n📘 **Fanpage**: \n🎵 **TikTok**: 
+            .setDescription('Vui lòng chỉ theo dõi và liên hệ thông qua các kênh chính thức của **Verdict | CSVN**.\nChúng tôi **không chịu trách nhiệm** đối với thông tin, hành vi hoặc giao dịch phát sinh ngoài các kênh được xác nhận.\n\n🌐 **Website**: sắp có\n📘 **Fanpage**: hiện chx có\n🎵 **TikTok**: sẽ có trong tg lai 
                             \n👥 **Group Facebook**: https://www.facebook.com/groups/831193133166623\n\n⚠️ **Lưu ý quan trọng**\n• Hãy cảnh giác với link lạ và file không rõ nguồn gốc.\n• Ban quản trị **không bao giờ** yêu cầu đăng nhập Steam hay xác minh tài khoản qua DM.')
             .setFooter({ text: 'CS2.VN – Xây dựng cộng đồng văn minh, an toàn và bền vững' });
 
