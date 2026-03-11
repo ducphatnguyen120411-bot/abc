@@ -3,7 +3,7 @@ const {
     Client, GatewayIntentBits, Partials, EmbedBuilder, 
     ActionRowBuilder, ButtonBuilder, ButtonStyle, Events
 } = require('discord.js');
-const express = require('express'); // Thêm thư viện web
+const express = require('express');
 
 // =======================
 // TẠO WEB SERVER ĐỂ RENDER KHÔNG TẮT BOT
@@ -35,11 +35,10 @@ client.on(Events.MessageCreate, async message => {
     if (message.content === '!setup' && message.member.permissions.has('Administrator')) {
         
         // --- EMBED 1: CHỌN ROLE ---
-const rolesEmbed = new EmbedBuilder()
+        const rolesEmbed = new EmbedBuilder()
             .setColor('#2b2d31')
             .setTitle('🎮 Special Roles')
             .setDescription('Chọn role phù hợp để nhận thông báo và kết nối hiệu quả hơn với cộng đồng **Counter Strike Việt Nam**.')
-            // Mẹo: Để hiện tên Role có màu, hãy để nó ở phần Value thay vì Name của Field
             .addFields(
                 { 
                     name: '━━━━━━━━━━━━━━━━━━', 
@@ -101,12 +100,22 @@ const rolesEmbed = new EmbedBuilder()
                 { name: '🔷 6. Hình thức xử lý', value: '• Lần 1: Cảnh cáo / Mute\n• Lần 2: Kick / Ban tạm thời\n• Lần 3: **Ban vĩnh viễn**', inline: true }
             );
 
-        // --- EMBED 3: KÊNH CHÍNH THỨC ---
+        // --- EMBED 3: KÊNH CHÍNH THỨC (ĐÃ FIX LỖI DÒNG 108) ---
         const infoEmbed = new EmbedBuilder()
             .setColor('#3498db')
             .setTitle('Kênh chính thức & Lưu ý')
-            .setDescription('Vui lòng chỉ theo dõi và liên hệ thông qua các kênh chính thức của **Verdict | CSVN**.\nChúng tôi **không chịu trách nhiệm** đối với thông tin, hành vi hoặc giao dịch phát sinh ngoài các kênh được xác nhận.\n\n🌐 **Website**: sắp có\n📘 **Fanpage**: hiện chx có\n🎵 **TikTok**: sẽ có trong tg lai 
-                            \n👥 **Group Facebook**: https://www.facebook.com/groups/831193133166623\n\n⚠️ **Lưu ý quan trọng**\n• Hãy cảnh giác với link lạ và file không rõ nguồn gốc.\n• Ban quản trị **không bao giờ** yêu cầu đăng nhập Steam hay xác minh tài khoản qua DM.')
+            .setDescription(`Vui lòng chỉ theo dõi và liên hệ thông qua các kênh chính thức của **Verdict | CSVN**.
+Chúng tôi **không chịu trách nhiệm** đối với thông tin, hành vi hoặc giao dịch phát sinh ngoài các kênh được xác nhận.
+
+🌐 **Website**: sắp có
+📘 **Fanpage**: hiện chx có
+🎵 **TikTok**: sẽ có trong tg lai
+
+👥 **Group Facebook**: https://www.facebook.com/groups/831193133166623
+
+⚠️ **Lưu ý quan trọng**
+• Hãy cảnh giác với link lạ và file không rõ nguồn gốc.
+• Ban quản trị **không bao giờ** yêu cầu đăng nhập Steam hay xác minh tài khoản qua DM.`)
             .setFooter({ text: 'CS2.VN – Xây dựng cộng đồng văn minh, an toàn và bền vững' });
 
         await message.delete().catch(() => {});
