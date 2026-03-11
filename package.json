@@ -1,0 +1,14 @@
+{
+  "name": "cs2-discord-bot",
+  "version": "1.0.0",
+  "description": "Bot get role CS2",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
