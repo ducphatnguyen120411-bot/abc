@@ -116,7 +116,7 @@ Chúng tôi **không chịu trách nhiệm** đối với thông tin, hành vi h
 ⚠️ **Lưu ý quan trọng**
 • Hãy cảnh giác với link lạ và file không rõ nguồn gốc.
 • Ban quản trị **không bao giờ** yêu cầu đăng nhập Steam hay xác minh tài khoản qua DM.`)
-            .setFooter({ text: 'CS2.VN – Xây dựng cộng đồng văn minh, an toàn và bền vững' });
+            .setFooter({ text: 'Verdict | CSVN – Xây dựng cộng đồng văn minh, an toàn và bền vững' });
 
         await message.delete().catch(() => {});
         await message.channel.send({ embeds: [rolesEmbed], components: [row1, row2] });
