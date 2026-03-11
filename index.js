@@ -81,7 +81,8 @@ client.on(Events.MessageCreate, async message => {
         const infoEmbed = new EmbedBuilder()
             .setColor('#3498db')
             .setTitle('Kênh chính thức & Lưu ý')
-            .setDescription('Vui lòng chỉ theo dõi và liên hệ thông qua các kênh chính thức của **CS2.VN**.\nChúng tôi **không chịu trách nhiệm** đối với thông tin, hành vi hoặc giao dịch phát sinh ngoài các kênh được xác nhận.\n\n🌐 **Website**: https://cs2.vn/\n📘 **Fanpage**: https://www.facebook.com/CounterStrikeVN\n🎵 **TikTok**: https://tiktok.com/@cs2.vn\n👥 **Group Facebook**: https://www.facebook.com/groups/communitycsvn\n\n⚠️ **Lưu ý quan trọng**\n• Hãy cảnh giác với link lạ và file không rõ nguồn gốc.\n• Ban quản trị **không bao giờ** yêu cầu đăng nhập Steam hay xác minh tài khoản qua DM.')
+            .setDescription('Vui lòng chỉ theo dõi và liên hệ thông qua các kênh chính thức của **Verdict | CSVN**.\nChúng tôi **không chịu trách nhiệm** đối với thông tin, hành vi hoặc giao dịch phát sinh ngoài các kênh được xác nhận.\n\n🌐 **Website**: \n📘 **Fanpage**: \n🎵 **TikTok**: 
+                            \n👥 **Group Facebook**: https://www.facebook.com/groups/831193133166623\n\n⚠️ **Lưu ý quan trọng**\n• Hãy cảnh giác với link lạ và file không rõ nguồn gốc.\n• Ban quản trị **không bao giờ** yêu cầu đăng nhập Steam hay xác minh tài khoản qua DM.')
             .setFooter({ text: 'CS2.VN – Xây dựng cộng đồng văn minh, an toàn và bền vững' });
 
         await message.delete().catch(() => {});
