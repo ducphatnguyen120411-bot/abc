@@ -53,7 +53,7 @@ client.on(Events.MessageCreate, async message => {
         const row1 = new ActionRowBuilder().addComponents(
             new ButtonBuilder().setCustomId('role_cs2').setLabel('CS:2').setStyle(ButtonStyle.Primary),
             new ButtonBuilder().setCustomId('role_csgo').setLabel('CS:GO').setStyle(ButtonStyle.Primary),
-            new ButtonBuilder().setCustomId('role_teamfindercs2').setLabel('Premier').setStyle(ButtonStyle.Primary),
+            new ButtonBuilder().setCustomId('role_teamfindercs2').setLabel('Team Finder').setStyle(ButtonStyle.Primary),
             new ButtonBuilder().setCustomId('role_competitive').setLabel('Competitive').setStyle(ButtonStyle.Primary),
         );
             
