@@ -42,9 +42,9 @@ client.on(Events.MessageCreate, async message => {
             .addFields(
                 { name: '🔷 <@&1465572670329454695>', value: '• Người chơi **Counter-Strike 2**.\n• Nhận thông báo update, sự kiện và giải đấu CS2.', inline: true },
                 { name: '🔷 <@&1481270779617480876>', value: '• Người chơi **CS:GO**.\n• Theo dõi tin tức, thảo luận và kỷ niệm CS:GO.', inline: true },
-                { name: '🔷 <@&1481239735140749384>', value: '• Người chơi **Team Finder CS2**.\n• Tìm đồng đội cùng trình độ, leo rank hiệu quả.\n# 🧐 • tìm-người-chơi 💥', inline: true },
-                { name: '🔷 <@&1481239406361841695>', value: '• Chế độ **Rank 5v5**.\n• Kết nối người chơi tryhard, đánh team nghiêm túc.\n# 🧐 • tìm-người-chơi 💥', inline: true },
-                { name: '🔷 <@&1465572749442547890>', value: '• Tham gia **Server Community**.\n• Retake, Surf, Deathmatch, Zombie và các mode khác.\n# 🧐 • tìm-người-chơi 💥', inline: true },
+                { name: '🔷 <@&1481239735140749384>', value: '• Người chơi **Team Finder CS2**.\n• Tìm đồng đội cùng trình độ, leo rank hiệu quả.\n <#1476224529834704987>', inline: true },
+                { name: '🔷 <@&1481239406361841695>', value: '• Chế độ **Rank 5v5**.\n• Kết nối người chơi tryhard, đánh team nghiêm túc.\n <#1476224529834704987>', inline: true },
+                { name: '🔷 <@&1465572749442547890>', value: '• Tham gia **Server Community**.\n• Retake, Surf, Deathmatch, Zombie và các mode khác.\n <#1476224529834704987>', inline: true },
                 { name: '🔷 <@&1465574099723227304>', value: '• Dành cho **Streamer / YouTuber / TikToker**.\n• Yêu cầu hoạt động nội dung CS2 / CS:GO thực tế.', inline: true },
                 { name: '🔷 <@&1465573697229295799>', value: '• Role **Seller** (mua bán, trao đổi dịch vụ CS2 / CS:GO).\n• Bắt buộc tuân thủ luật server.\n# 💰 • mua-bán', inline: true }
             )
