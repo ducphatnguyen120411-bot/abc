@@ -3,18 +3,18 @@ const {
     Client, GatewayIntentBits, Partials, EmbedBuilder, 
     ActionRowBuilder, ButtonBuilder, ButtonStyle, Events
 } = require('discord.js');
-const express = require('express');
+const express = require('express'); // Thêm thư viện web
 
 // =======================
-// WEB SERVER (Giữ bot online)
+// TẠO WEB SERVER ĐỂ RENDER KHÔNG TẮT BOT
 // =======================
 const app = express();
 const port = process.env.PORT || 3000;
-app.get('/', (req, res) => res.send('🤖 Bot Discord CS2 đang hoạt động!'));
-app.listen(port, () => console.log(`🌐 Web server chạy tại port ${port}`));
+app.get('/', (req, res) => res.send('🤖 Bot Discord CS2 đang hoạt động bình thường!'));
+app.listen(port, () => console.log(`🌐 Web server đang chạy trên port ${port}`));
 
 // =======================
-// CẤU HÌNH BOT
+// CẤU HÌNH BOT DISCORD
 // =======================
 const client = new Client({
     intents: [
@@ -27,7 +27,7 @@ const client = new Client({
 });
 
 client.once(Events.ClientReady, c => {
-    console.log(`✅ Bot đã khởi động: ${c.user.tag}`);
+    console.log(`✅ Bot đã khởi động với tên ${c.user.tag}`);
 });
 
 // Lệnh !setup
@@ -38,42 +38,62 @@ client.on(Events.MessageCreate, async message => {
         const rolesEmbed = new EmbedBuilder()
             .setColor('#2b2d31')
             .setTitle('🎮 Special Roles')
-            .setDescription('Chọn role phù hợp để nhận thông báo từ **Counter Strike Việt Nam**.')
+            .setDescription('Chọn role phù hợp để nhận thông báo và kết nối hiệu quả hơn với cộng đồng **Counter Strike Việt Nam**.')
             .addFields(
-                { name: '━━━━━━━━━━━━━━━━━━', value: `🔹 <@&1465572670329454695>\n• Người chơi **CS2**.`, inline: true },
-                { name: '━━━━━━━━━━━━━━━━━━', value: `🔹 <@&1481270779617480876>\n• Người chơi **CS:GO**.`, inline: true },
-                { name: '━━━━━━━━━━━━━━━━━━', value: `🔹 <@&1481239735140749384>\n• **Team Finder CS2**.`, inline: true },
-                { name: '━━━━━━━━━━━━━━━━━━', value: `🔹 <@&1481239406361841695>\n• Chế độ **Rank 5v5**.`, inline: true },
-                { name: '━━━━━━━━━━━━━━━━━━', value: `🔹 <@&1465572749442547890>\n• **Community Server**.`, inline: true },
-                { name: '━━━━━━━━━━━━━━━━━━', value: `🔹 <@&1465574099723227304>\n• **Influencer**.`, inline: true }
+                { name: '🔷 <@&1465572670329454695>', value: '• Người chơi **Counter-Strike 2**.\n• Nhận thông báo update, sự kiện và giải đấu CS2.', inline: true },
+                { name: '🔷 <@&1481270779617480876>', value: '• Người chơi **CS:GO**.\n• Theo dõi tin tức, thảo luận và kỷ niệm CS:GO.', inline: true },
+                { name: '🔷 <@&1481239735140749384>', value: '• Người chơi **Team Finder CS2**.\n• Tìm đồng đội cùng trình độ, leo rank hiệu quả.\n <#1476224529834704987>', inline: true },
+                { name: '🔷 <@&1481239406361841695>', value: '• Chế độ **Rank 5v5**.\n• Kết nối người chơi tryhard, đánh team nghiêm túc.\n <#1476224529834704987>', inline: true },
+                { name: '🔷 <@&1465572749442547890>', value: '• Tham gia **Server Community**.\n• Retake, Surf, Deathmatch, Zombie và các mode khác.\n <#1476224529834704987>', inline: true },
+                { name: '🔷 <@&1465574099723227304>', value: '• Dành cho **Streamer / YouTuber / TikToker**.\n• Yêu cầu hoạt động nội dung CS2 / CS:GO thực tế.', inline: true },
+                { name: '🔷 <@&1465573697229295799>', value: '• Role **Seller** (mua bán, trao đổi dịch vụ CS2 / CS:GO).\n• Bắt buộc tuân thủ luật server.\n# 💰 • mua-bán', inline: true }
             )
-            .setFooter({ text: '📌 Nhấn nút bên dưới để nhận hoặc gỡ Role.' });
+            .setFooter({ text: '📌 Chọn role phù hợp để nhận thông báo và tối ưu trải nghiệm của bạn.' });
 
         const row1 = new ActionRowBuilder().addComponents(
             new ButtonBuilder().setCustomId('role_cs2').setLabel('CS:2').setStyle(ButtonStyle.Primary),
             new ButtonBuilder().setCustomId('role_csgo').setLabel('CS:GO').setStyle(ButtonStyle.Primary),
-            new ButtonBuilder().setCustomId('role_teamfindercs2').setLabel('Team Finder').setStyle(ButtonStyle.Success), // Màu xanh lá cho nổi
+            new ButtonBuilder().setCustomId('role_teamfindercs2').setLabel('Team Finder').setStyle(ButtonStyle.Primary),
             new ButtonBuilder().setCustomId('role_competitive').setLabel('Competitive').setStyle(ButtonStyle.Primary),
         );
             
         const row2 = new ActionRowBuilder().addComponents(
-            new ButtonBuilder().setCustomId('role_server_community').setLabel('Server Community').setStyle(ButtonStyle.Secondary),
-            new ButtonBuilder().setCustomId('role_influencer').setLabel('Influencer').setStyle(ButtonStyle.Secondary),
-            new ButtonBuilder().setCustomId('role_seller').setLabel('Seller').setStyle(ButtonStyle.Danger) // Màu đỏ
+            new ButtonBuilder().setCustomId('role_server_community').setLabel('Server Community').setStyle(ButtonStyle.Primary),
+            new ButtonBuilder().setCustomId('role_influencer').setLabel('Influencer').setStyle(ButtonStyle.Primary),
+            new ButtonBuilder().setCustomId('role_seller').setLabel('Seller').setStyle(ButtonStyle.Primary)
         );
 
         // --- EMBED 2: QUY ĐỊNH ---
         const rulesEmbed = new EmbedBuilder()
             .setColor('#e74c3c')
             .setTitle('Quy định & Nguyên tắc xử lý')
-            .setDescription('Mọi hành vi vi phạm sẽ được xử lý dựa trên mức độ nghiêm trọng.\n\nAdmin có quyền **Ban vĩnh viễn** đối với các trường hợp nghiêm trọng.');
+            .setDescription('Mọi hành vi vi phạm sẽ được xử lý dựa trên mức độ nghiêm trọng.\n\nAdmin có quyền **Ban vĩnh viễn ngay lập tức** đối với các trường hợp nghiêm trọng **mà không cần cảnh cáo trước**.\n\nHình thức và thời gian xử lý chỉ mang tính tham khảo, **quyết định cuối cùng thuộc về Admin**.')
+            .addFields(
+                { name: '🔷 1. Ứng xử', value: '• Tôn trọng tất cả thành viên.\n• Không chửi bậy, xúc phạm, công kích cá nhân.\n• Không gây war, toxic quá mức.', inline: true },
+                { name: '🔷 2. Spam & Quảng cáo', value: '• Không spam tin nhắn, emoji, reaction.\n• Không quảng cáo Discord, server, website... khi chưa được Admin duyệt.', inline: true },
+                { name: '🔷 3. Voice Chat', value: '• Không spam mic, bật nhạc.\n• Giữ thái độ văn minh.\n• Tôn trọng người khác khi nói chuyện.', inline: true },
+                { name: '🔷 4. Hack & Gian lận', value: '• Cấm hack, cheat, phần mềm thứ ba.\n• Cấm lợi dụng bug.\n→ Vi phạm sẽ bị **Ban vĩnh viễn**.', inline: true },
+                { name: '🔷 5. Nội dung & Chủ đề', value: '• Không đăng nội dung khiêu dâm, phản cảm, bạo lực mạnh.\n• Không đăng nội dung chính trị, tôn giáo, xuyên tạc,...', inline: true },
+                { name: '🔷 6. Hình thức xử lý', value: '• Lần 1: Cảnh cáo / Mute\n• Lần 2: Kick / Ban tạm thời\n• Lần 3: **Ban vĩnh viễn**', inline: true }
+            );
 
-        // --- EMBED 3: THÔNG TIN ---
+        // --- EMBED 3: KÊNH CHÍNH THỨC ---
         const infoEmbed = new EmbedBuilder()
             .setColor('#3498db')
             .setTitle('Kênh chính thức & Lưu ý')
-            .setDescription(`🌐 **Website**: sắp có\n📘 **Fanpage**: hiện chx có\n🎵 **TikTok**: sẽ có trong tg lai\n\n👥 **Group**: https://www.facebook.com/groups/831193133166623`)
-            .setFooter({ text: 'Verdict | CSVN – Xây dựng cộng đồng văn minh' });
+            .setDescription(`Vui lòng chỉ theo dõi và liên hệ thông qua các kênh chính thức của **Verdict | CSVN**.
+Chúng tôi **không chịu trách nhiệm** đối với thông tin, hành vi hoặc giao dịch phát sinh ngoài các kênh được xác nhận.
+
+🌐 **Website**: sắp có
+📘 **Fanpage**: hiện chx có
+🎵 **TikTok**: sẽ có trong tg lai
+
+👥 **Group Facebook**: https://www.facebook.com/groups/831193133166623
+
+⚠️ **Lưu ý quan trọng**
+• Hãy cảnh giác với link lạ và file không rõ nguồn gốc.
+• Ban quản trị **không bao giờ** yêu cầu đăng nhập Steam hay xác minh tài khoản qua DM.`)
+            .setFooter({ text: 'CS2.VN – Xây dựng cộng đồng văn minh, an toàn và bền vững' });
 
         await message.delete().catch(() => {});
         await message.channel.send({ embeds: [rolesEmbed], components: [row1, row2] });
@@ -89,7 +109,7 @@ client.on(Events.InteractionCreate, async interaction => {
     const roleMapping = {
         'role_cs2': process.env.ROLE_CS2_ID,
         'role_csgo': process.env.ROLE_CSGO_ID,
-        'role_teamfindercs2': process.env.ROLE_TEAMFINDER_ID, // Khớp với ID nút
+        'role_teamfindercs2': process.env.ROLE_TEAMFINDER_ID, // Thêm dòng này để nút Team Finder chạy
         'role_competitive': process.env.ROLE_COMPETITIVE_ID,
         'role_server_community': process.env.ROLE_SERVER_COMMUNITY_ID,
         'role_influencer': process.env.ROLE_INFLUENCER_ID,
@@ -101,18 +121,21 @@ client.on(Events.InteractionCreate, async interaction => {
 
     try {
         const role = interaction.guild.roles.cache.get(roleIdToAssign);
-        if (!role) return interaction.reply({ content: '❌ Lỗi: Kiểm tra lại ID Role trong file .env!', ephemeral: true });
+        if (!role) {
+            return interaction.reply({ content: '❌ Role chưa được setup đúng ID.', ephemeral: true });
+        }
 
-        if (interaction.member.roles.cache.has(roleIdToAssign)) {
-            await interaction.member.roles.remove(roleIdToAssign);
-            return interaction.reply({ content: `➖ Đã gỡ role **${role.name}**!`, ephemeral: true });
+        const member = interaction.member;
+        if (member.roles.cache.has(roleIdToAssign)) {
+            await member.roles.remove(roleIdToAssign);
+            return interaction.reply({ content: `➖ Bạn đã gỡ role **${role.name}**!`, ephemeral: true });
         } else {
-            await interaction.member.roles.add(roleIdToAssign);
-            return interaction.reply({ content: `✅ Đã nhận role **${role.name}**!`, ephemeral: true });
+            await member.roles.add(roleIdToAssign);
+            return interaction.reply({ content: `✅ Bạn đã nhận role **${role.name}**!`, ephemeral: true });
         }
     } catch (error) {
         console.error(error);
-        return interaction.reply({ content: '❌ Lỗi: Hãy kéo Role của Bot lên cao hơn các Role khác trong cài đặt Server!', ephemeral: true });
+        return interaction.reply({ content: '❌ Lỗi cấp quyền. Kiểm tra lại xếp hạng role của Bot.', ephemeral: true });
     }
 });
 
