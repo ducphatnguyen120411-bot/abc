@@ -35,18 +35,19 @@ client.on(Events.MessageCreate, async message => {
     if (message.content === '!setup' && message.member.permissions.has('Administrator')) {
         
         // --- EMBED 1: CHỌN ROLE ---
+// --- EMBED 1: CHỌN ROLE ---
         const rolesEmbed = new EmbedBuilder()
             .setColor('#2b2d31')
             .setTitle('🎮 Special Roles')
             .setDescription('Chọn role phù hợp để nhận thông báo và kết nối hiệu quả hơn với cộng đồng **Counter Strike Việt Nam**.')
             .addFields(
-                { name: '🔷 <@&1465572670329454695>', value: '• Người chơi **Counter-Strike 2**.\n• Nhận thông báo update, sự kiện và giải đấu CS2.', inline: true },
-                { name: '🔷 <@&1481270779617480876>', value: '• Người chơi **CS:GO**.\n• Theo dõi tin tức, thảo luận và kỷ niệm CS:GO.', inline: true },
-                { name: '🔷 <@&1481239735140749384>', value: '• Người chơi **Team Finder CS2**.\n• Tìm đồng đội cùng trình độ, leo rank hiệu quả.\n <#1476224529834704987>', inline: true },
-                { name: '🔷 <@&1481239406361841695>', value: '• Chế độ **Rank 5v5**.\n• Kết nối người chơi tryhard, đánh team nghiêm túc.\n <#1476224529834704987>', inline: true },
-                { name: '🔷 <@&1465572749442547890>', value: '• Tham gia **Server Community**.\n• Retake, Surf, Deathmatch, Zombie và các mode khác.\n <#1476224529834704987>', inline: true },
-                { name: '🔷 <@&1465574099723227304>', value: '• Dành cho **Streamer / YouTuber / TikToker**.\n• Yêu cầu hoạt động nội dung CS2 / CS:GO thực tế.', inline: true },
-                { name: '🔷 <@&1465573697229295799>', value: '• Role **Seller** (mua bán, trao đổi dịch vụ CS2 / CS:GO).\n• Bắt buộc tuân thủ luật server.\n# 💰 • mua-bán', inline: true }
+                { name: '🔷 Counter-Strike 2', value: '<@&1465572670329454695>\n• Người chơi **Counter-Strike 2**.\n• Nhận thông báo update, sự kiện và giải đấu CS2.', inline: true },
+                { name: '🔷 CS:GO', value: '<@&1481270779617480876>\n• Người chơi **CS:GO**.\n• Theo dõi tin tức, thảo luận và kỷ niệm CS:GO.', inline: true },
+                { name: '🔷 Team Finder CS2', value: '<@&1481239735140749384>\n• Tìm đồng đội cùng trình độ, leo rank hiệu quả.\n <#1476224529834704987>', inline: true },
+                { name: '🔷 Rank 5v5', value: '<@&1481239406361841695>\n• Chế độ **Rank 5v5**.\n• Kết nối người chơi tryhard, đánh team nghiêm túc.\n <#1476224529834704987>', inline: true },
+                { name: '🔷 Server Community', value: '<@&1465572749442547890>\n• Tham gia **Server Community**.\n• Retake, Surf, Deathmatch, Zombie và các mode khác.\n <#1476224529834704987>', inline: true },
+                { name: '🔷 Influencer', value: '<@&1465574099723227304>\n• Dành cho **Streamer / YouTuber / TikToker**.\n• Yêu cầu hoạt động nội dung CS2 / CS:GO thực tế.', inline: true },
+                { name: '🔷 Seller', value: '<@&1465573697229295799>\n• Role **Seller** (mua bán, trao đổi dịch vụ CS2 / CS:GO).\n• Bắt buộc tuân thủ luật server.\n# 💰 • mua-bán', inline: true }
             )
             .setFooter({ text: '📌 Chọn role phù hợp để nhận thông báo và tối ưu trải nghiệm của bạn.' });
 
